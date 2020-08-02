@@ -1,0 +1,64 @@
+/*
+====== 
+Styling for list items of the menu 
+======
+*/
+/* give menu items padding */
+ul li.page_item {
+    padding: 0.8rem 1rem;
+}
+/* change color of anchor tags of menu item */
+ul li.page_item a {
+    color: #212529 !important;
+}
+
+/*
+======= 
+for UL who are nested within LI 
+=======
+*/
+/* remove ul styling for ul which are nested within LI */
+ul.children {
+    list-style-type: none;
+    padding-left: 0rem;
+    padding-top: 0.5rem;
+}
+
+ul.children li {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+ul.children li a {
+    padding: 0.5rem 0 0.5rem 0;
+
+}
+
+/*
+======= 
+For dropdown menu 
+=======
+*/
+
+/* to make nested ul invisible */
+.navbar-nav li ul {
+    display: none;
+    position: absolute;
+    top: 3em;
+    left: 0;
+    z-index: 99999;
+    width: 180px;
+    background: #fff;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+/* Display the nested UL when hover over list that has nested UL */
+.navbar-nav li.page_item_has_children:hover>ul {
+    display: block;
+}
+/*styling to make sure everything appears nicely*/
+li.page_item_has_children {
+    position: relative;
+}
+
+li.page_item_has_children ul li {
+    position: relative;
+}
