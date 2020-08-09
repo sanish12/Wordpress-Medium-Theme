@@ -6,6 +6,7 @@ HEADER
 <?php
 if (have_posts()) :
     while (have_posts()) : the_post();
+    wpb_set_post_views(get_the_ID());
 ?>
         <div class="container">
             <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">

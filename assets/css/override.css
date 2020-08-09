@@ -50,6 +50,16 @@ For dropdown menu
     background: #fff;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 }
+.navbar-nav li ul li.page_item_has_children::after{
+    content: ' \f054';
+    float: right;
+    font-size: 1rem;
+}
+.navbar-nav li ul li ul{
+    position: absolute;
+    top: -8px;
+    left: 100%;
+}
 /* Display the nested UL when hover over list that has nested UL */
 .navbar-nav li.page_item_has_children:hover>ul {
     display: block;

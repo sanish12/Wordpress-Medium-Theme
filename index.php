@@ -49,14 +49,14 @@ $args = array(
 	'posts_per_page' => 4,
 	'tag' => 'highlight'
 );
-$the_latest_posts = new WP_Query($args);
+$highlighted_posts = new WP_Query($args);
 $count = 1;	
 ?>    
 <div class="container pt-4 pb-4">
 	<div class="row">
 	<?php
-	if($the_latest_posts->have_posts()):
-	while( $the_latest_posts->have_posts() ) : $the_latest_posts->the_post( );
+	if($highlighted_posts->have_posts()):
+	while( $highlighted_posts->have_posts() ) : $highlighted_posts->the_post( );
 	if($count==1){ 
 	?>
 		<div class="col-lg-6">
@@ -83,7 +83,7 @@ $count = 1;
 		?>
 			<div class="flex-md-row mb-4 box-shadow">
 				<div class="mb-3 d-flex align-items-center">
-					<img height="80" src="<?php echo get_theme_file_uri() ?>/assets/img/demo/blog4.jpg">
+					<img height="80" src="<?php echo get_the_post_thumbnail_url(); ?>">
 					<div class="pl-3">
 						<h2 class="mb-2 h6 font-weight-bold">
 						<a class="text-dark" href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a>
@@ -109,8 +109,13 @@ $count = 1;
 		<div class="col-md-8">
 			<h5 class="font-weight-bold spanborder"><span>All Stories</span></h5>
 			<?php 
-				if (have_posts()) :
-          			while (have_posts()) : the_post(); ?>
+			$args = array(
+				'posts_per_page' => 5,
+				'post__not_in' => get_option( 'sticky_posts' ),
+			);
+			$latest_posts = new WP_Query($args);
+				if ($latest_posts->have_posts()) :
+          			while ($latest_posts->have_posts()) : $latest_posts->the_post(); ?>
 			<div class="mb-3 d-flex justify-content-between">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
@@ -124,7 +129,7 @@ $count = 1;
 					</div>
 					<small class="text-muted">Dec 12 &middot; 5 min read</small>
 				</div>
-				<img height="120" src="<?php echo get_theme_file_uri() ?>/assets/img/demo/blog8.jpg">
+				<img height="120" src="<?php echo get_the_post_thumbnail_url(); ?>">
 			</div>
 			<?php
 				endwhile;
@@ -140,6 +145,7 @@ $count = 1;
 						'meta_key' => 'wpb_post_views_count', 
 						'orderby' => 'meta_value_num', 
 						'order' => 'DESC', 
+						'post__not_in' => get_option( 'sticky_posts' ),
 					);
 					$the_popular_posts = new WP_Query($args);
 					if($the_popular_posts->have_posts(  )):
