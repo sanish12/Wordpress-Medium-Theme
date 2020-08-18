@@ -130,4 +130,16 @@ function add_additional_class_on_li($classes, $item, $args) {
 }
 add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);  
 
+// Remove website field from comment
+function website_remove($fields)
+{
+if(isset($fields['url']))
+unset($fields['url']);
+return $fields;
+}
+add_filter('comment_form_default_fields', 'website_remove');
+
+// remove cookie option from comments
+remove_action( 'set_comment_cookies', 'wp_set_comment_cookies' );
+
 ?>
