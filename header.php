@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.ico">
 <link rel="icon" type="image/png" href="./assets/img/favicon.ico">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<title>Mundana Template by WowThemesNet</title>
+<title><?php echo get_bloginfo('title'); ?></title>
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,600,700" rel="stylesheet">

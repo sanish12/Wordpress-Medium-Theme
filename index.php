@@ -29,7 +29,7 @@ if ( $the_query->have_posts() ) :
 				<div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url(<?php echo get_the_post_thumbnail_url(); ?>);">	</div>
 			</div>
 		</div>
-	</div>
+	</div> 
 </div>
 <?php
 

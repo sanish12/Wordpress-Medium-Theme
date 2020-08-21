@@ -117,3 +117,12 @@ ol.children{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+/* Search styling */
+#search-form input{
+    border: 1px solid #ced4da;
+    padding: 0.45rem 1.2rem;
+}
+/* search results title for result */
+h2.entry-title::first-letter{
+    font-size: 2rem;
+}

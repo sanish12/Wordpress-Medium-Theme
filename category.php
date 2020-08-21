@@ -22,17 +22,17 @@ if ($query->have_posts()) :
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="card border-0 mb-4 box-shadow h-xl-300">
-                            <div style="background-image: url(./assets/img/demo/1.jpg); height: 150px;    background-size: cover;    background-repeat: no-repeat;"></div>
+                            <div style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>); height: 150px;    background-size: cover;    background-repeat: no-repeat;"></div>
                             <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
                                 <h2 class="h4 font-weight-bold">
-                                    <a class="text-dark" href="./article.html">Brain Stimulation Relieves Depression Symptoms</a>
+                                    <a class="text-dark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                 </h2>
                                 <p class="card-text">
-                                    Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
+                                    <?php the_excerpt( ); ?>
                                 </p>
                                 <div>
-                                    <small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
-                                    <small class="text-muted">Dec 12 &middot; 5 min read</small>
+                                    <small class="d-block"><a class="text-muted" href="./author.html"><?php the_author(); ?></a></small>
+                                    <small class="text-muted"><?php the_date(); ?> &middot; 5 min read</small>
                                 </div>
                             </div>
                         </div>
@@ -42,13 +42,13 @@ if ($query->have_posts()) :
                         <?php } ?>
                         <?php if ($post_count > 0 && $post_count < 4) { ?>
                             <div class="mb-3 d-flex align-items-center">
-                                <img height="80" src="./assets/img/demo/blog4.jpg">
+                                <img height="80" src="<?php echo get_the_post_thumbnail_url(); ?>">
                                 <div class="pl-3">
                                     <h2 class="mb-2 h6 font-weight-bold">
-                                        <a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps of Earth</a>
+                                        <a class="text-dark" href="<?php echo the_permalink(); ?>"><?php the_title(); ?></a>
                                     </h2>
                                     <div class="card-text text-muted small">
-                                        Jake Bittle in LOVE/HATE
+                                        <?php the_author( ); ?>
                                     </div>
                                     <small class="text-muted">Dec 12 &middot; 5 min read</small>
                                 </div>
@@ -68,17 +68,17 @@ if ($query->have_posts()) :
                         <div class="mb-3 d-flex justify-content-between">
                             <div class="pr-3">
                                 <h2 class="mb-1 h4 font-weight-bold">
-                                    <a class="text-dark" href="./article.html">Nearly 200 Great Barrier Reef coral species also live in the deep sea</a>
+                                    <a class="text-dark" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                                 </h2>
                                 <p>
-                                    There are more coral species lurking in the deep ocean that previously thought.
+                                    <?php the_excerpt( ); ?>
                                 </p>
                                 <div class="card-text text-muted small">
-                                    Jake Bittle in SCIENCE
+                                    <?php the_author(); ?>
                                 </div>
-                                <small class="text-muted">Dec 12 &middot; 5 min read</small>
+                                <small class="text-muted"><?php the_date(); ?> &middot; 5 min read</small>
                             </div>
-                            <img height="120" src="./assets/img/demo/blog8.jpg">
+                            <img height="120" src="<?php echo get_the_post_thumbnail_url(); ?>">
                         </div>
                     <?php } ?>
                     <?php $post_count++; ?>
@@ -89,3 +89,5 @@ if ($query->have_posts()) :
             </div><!-- end of container for all stories section-->
 <!-- FOOTER -->
 <?php get_footer(); ?>
+
+
