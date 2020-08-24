@@ -11,6 +11,12 @@ ul li.page_item {
 ul li.page_item a {
     color: #212529 !important;
 }
+/* For search bar in nav menu */
+#nav-search{
+    border: none;
+    border-bottom: 1px solid #777;
+    border-radius: 0;
+}
 
 /*
 ======= 
