@@ -30,6 +30,7 @@ if ( post_password_required() )
                     'style'       => 'ol',
                     'short_ping'  => true,
                     'avatar_size' => 74,
+                    'walker' => new medi_walker_comment
                 ) );
             ?>
         </ol><!-- .comment-list -->

@@ -46,13 +46,31 @@ NAVBAR
 			);
 
 			?>
-			<form class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="<?php echo home_url(); ?>" method="get">
+			<form id='searchBar' class="form-inline d-flex justify-content-center md-form form-sm mt-0" action="<?php echo home_url(); ?>" method="get">
 				<input id='nav-search' class="form-control form-control-sm ml-3 w-75" name='s' type="text" placeholder="Search" aria-label="Search">
 				<i class="fas fa-search pl-1" aria-hidden="true"></i>
 			</form>
 		</div>
+
 	</div>
 	</nav>
-
 	</nav>
+	<div class="container">
+	<div class="row px-4">
+		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+            <div class="MultiCarousel-inner">
+				<?php
+				$categories = get_categories();
+				foreach ($categories as $category) {
+					if ($category->count > 0) {
+						echo '<div class="item"><div class="pad15"><p><a href="' . get_category_link($category->term_id) . '" class="text-muted">' . $category->name . '</a></p></div></div>';
+					}
+				}
+				?>
+            </div>
+            <button class="leftLst"><</button>
+            <button class="rightLst">></button>
+        </div>
+	</div>
+	</div>	
 	<!-- End Navbar -->

@@ -4,18 +4,40 @@ Styling for list items of the menu
 ======
 */
 /* give menu items padding */
-ul li.page_item {
+ul li.page_item,
+#menu-all-pages li.menu-item {
     padding: 0.8rem 1rem;
 }
+
 /* change color of anchor tags of menu item */
-ul li.page_item a {
+ul li.page_item,
+ul li.menu-item a {
     color: #212529 !important;
 }
+
 /* For search bar in nav menu */
-#nav-search{
+#nav-search {
     border: none;
     border-bottom: 1px solid #777;
     border-radius: 0;
+}
+
+/* FOR MOBILE VIEW OF NAVBAR */
+@media only screen and (max-width: 600px) {
+    div.navbar-collapse.collapse.show {
+        margin-bottom: 1rem;
+        justify-content: left !important;
+    }
+
+    ul#menu-all-pages {
+        align-items: start !important;
+    }
+
+    form#searchBar {
+        justify-content: start !important;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
 }
 
 /*
@@ -24,17 +46,20 @@ for UL who are nested within LI
 =======
 */
 /* remove ul styling for ul which are nested within LI */
-ul.children {
+ul.children,
+ul.sub-menu {
     list-style-type: none;
     padding-left: 0rem;
     padding-top: 0.5rem;
 }
 
-ul.children li {
+ul.children,
+ul.sub-menu li {
     border-bottom: 1px solid #e5e5e5;
 }
 
-ul.children li a {
+ul.children,
+ul.sub-menu li a {
     padding: 0.5rem 0 0.5rem 0;
 
 }
@@ -56,27 +81,83 @@ For dropdown menu
     background: #fff;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 }
-.navbar-nav li ul li.page_item_has_children::after{
+
+.navbar-nav li ul li.page_item_has_children::after,
+.navbar-nav li ul li.menu-item-has-children::after {
     content: ' \f054';
     float: right;
     font-size: 1rem;
 }
-.navbar-nav li ul li ul{
+
+.navbar-nav li ul li ul {
     position: absolute;
     top: -8px;
     left: 100%;
 }
+
 /* Display the nested UL when hover over list that has nested UL */
-.navbar-nav li.page_item_has_children:hover>ul {
+.navbar-nav li.page_item_has_children:hover>ul,
+.navbar-nav li.menu-item-has-children:hover>ul {
     display: block;
 }
+
 /*styling to make sure everything appears nicely*/
-li.page_item_has_children {
+li.page_item_has_children,
+li.menu-item-has-children {
     position: relative;
 }
 
-li.page_item_has_children ul li {
+li.page_item_has_children ul li,
+li.menu-item-has-children ul li {
     position: relative;
+}
+
+/* CATEGORIES CAROUSEL */
+.MultiCarousel {
+    float: left;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    position: relative;
+}
+
+.MultiCarousel .MultiCarousel-inner {
+    transition: 1s ease all;
+    float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item {
+    float: left;
+}
+
+.MultiCarousel .MultiCarousel-inner .item>div {
+    text-align: center;
+}
+
+.MultiCarousel .leftLst,
+.MultiCarousel .rightLst {
+    position: absolute;
+    top: calc(50% - 20px);
+}
+
+.MultiCarousel .leftLst {
+    left: 0;
+}
+
+.MultiCarousel .rightLst {
+    right: 0;
+}
+
+.MultiCarousel .leftLst, .MultiCarousel .rightLst {
+    background: none;
+    border: none;
+    font-weight: 600;
+}
+
+.MultiCarousel .leftLst.over,
+.MultiCarousel .rightLst.over {
+    pointer-events: none;
 }
 
 /* 
@@ -84,22 +165,27 @@ li.page_item_has_children ul li {
     COMMENTS PAGE
 ===========
 */
-#commentform label{
+#commentform label {
     display: block;
 }
-#commentform textarea,input{
+
+#commentform textarea,
+input {
     width: 100%;
     border: 1px solid #fefefe;
     border-radius: 5px;
 }
-#reply-title{
+
+#reply-title {
     color: #03a87c;
 }
-#commentform p.form-submit{
-    display: flex!important;
+
+#commentform p.form-submit {
+    display: flex !important;
     justify-content: flex-end;
 }
-#commentform #submit{
+
+#commentform #submit {
     background-color: #03a87c;
     color: #fefefe;
     width: 9rem;
@@ -107,28 +193,33 @@ li.page_item_has_children ul li {
     border: none;
     margin-top: 1rem;
 }
+
 /* Comment box */
-#respond{
-    background-color: #E8F3EC!important;
+#respond {
+    background-color: #E8F3EC !important;
     padding: 2rem;
 }
-ol.comment-list{
+
+ol.comment-list {
     list-style-type: none;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding-left: 0;
 }
-ol.children{
+
+ol.children {
     list-style-type: none;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
+
 /* Search styling */
-#search-form input{
+#search-form input {
     border: 1px solid #ced4da;
     padding: 0.45rem 1.2rem;
 }
+
 /* search results title for result */
-h2.entry-title::first-letter{
+h2.entry-title::first-letter {
     font-size: 2rem;
 }
